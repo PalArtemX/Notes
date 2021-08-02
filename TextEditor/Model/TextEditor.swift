@@ -12,7 +12,7 @@ import SwiftUI
 struct TextEditorModel {
     let sizesText: [CGFloat] = [10, 15, 20, 25, 30, 35]
     var selctionSize: CGFloat = 20
-    
+    var text = "erf"
     
     
 }

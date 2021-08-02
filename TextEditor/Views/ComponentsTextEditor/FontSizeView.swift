@@ -8,28 +8,31 @@
 import SwiftUI
 
 struct FontSizeView: View {
+    
+    @ObservedObject var vm: TextEditorVM
+    
     var body: some View {
-        Text("FontSize")
-//        Picker(selection: $selctionSize,
-//               label: VStack {
-//                Image(systemName: "textformat.size")
-//                Text("\(selctionSize, specifier: "%.0f")")
-//               },
-//               content: {
-//                ForEach(sizesText, id: \.self) { item in
-//                    Text("\(item, specifier: "%.0f")")//.tag(zizeText)
-//                }
-//               })
-//            .pickerStyle(MenuPickerStyle())
+
+        Picker(selection: $vm.textEditorModel.selctionSize,
+               label: VStack {
+                Image(systemName: "textformat.size")
+                Text("\(vm.textEditorModel.selctionSize, specifier: "%.0f")")
+               },
+               content: {
+                ForEach(vm.textEditorModel.sizesText, id: \.self) { item in
+                    Text("\(item, specifier: "%.0f")")//.tag(zizeText)
+                }
+               })
+            .pickerStyle(MenuPickerStyle())
     }
 }
 
 struct FontSizeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FontSizeView()
+            FontSizeView(vm: TextEditorVM())
                 .previewLayout(.sizeThatFits)
-            FontSizeView()
+            FontSizeView(vm: TextEditorVM())
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
         }

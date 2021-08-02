@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject var vm = TextEditorVM()
+    
     var body: some View {
         Text("Hello, World!")
     }
