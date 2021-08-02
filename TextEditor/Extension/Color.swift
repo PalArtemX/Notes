@@ -11,6 +11,7 @@ import SwiftUI
 struct ThemeColor {
     let background = Color("Background")
     let buttonText = Color("ButtonText")
+    let text = Color("Text")
 }
 
 extension Color {

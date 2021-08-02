@@ -12,9 +12,30 @@ struct HomeView: View {
     @StateObject var vm = TextEditorVM()
     
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ZStack {
+                // Background Color
+                Color.themeColor.background
+                    .ignoresSafeArea()
+                
+                Text("wedwe")
+                
+                
+                
+            }
+            .navigationTitle("Notes")
+        }
     }
 }
+
+
+
+
+
+
+
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

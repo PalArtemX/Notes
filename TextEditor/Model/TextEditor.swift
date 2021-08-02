@@ -10,9 +10,17 @@ import SwiftUI
 
 
 struct TextEditorModel {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    // MARK: - TextEditor
+    var text = "proba 123456789"
+    
+    
+    // MARK: - Size Text
     let sizesText: [CGFloat] = [10, 15, 20, 25, 30, 35]
     var selctionSize: CGFloat = 20
-    var text = "erf"
     
     
+    // MARK: - Color Text
+    var colorText: Color = .themeColor.text
 }

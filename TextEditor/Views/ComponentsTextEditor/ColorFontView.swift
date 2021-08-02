@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ColorFontView: View {
+    
+    @ObservedObject var vm: TextEditorVM
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ColorPicker("", selection: $vm.textEditorModel.colorText, supportsOpacity: true)
+            .frame(width: 30, alignment: .center)
     }
 }
 
 struct ColorFontView_Previews: PreviewProvider {
     static var previews: some View {
-        ColorFontView()
+        Group {
+            ColorFontView(vm: TextEditorVM())
+                .previewLayout(.sizeThatFits)
+            ColorFontView(vm: TextEditorVM())
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
+        }
+        .padding()
     }
 }
