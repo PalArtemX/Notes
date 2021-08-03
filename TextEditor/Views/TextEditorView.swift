@@ -10,6 +10,7 @@ import SwiftUI
 struct TextEditorView: View {
     
     @ObservedObject var vm: TextEditorVM
+    @Environment(\.presentationMode) var presentationMode
     
     
     var body: some View {
@@ -22,7 +23,6 @@ struct TextEditorView: View {
                 
                 
                 VStack {
-                    
                     HStack {
                         FontSizeView(vm: vm)
                         Spacer()
@@ -43,19 +43,21 @@ struct TextEditorView: View {
                         .font(Font.system(size: vm.textEditorModel.selctionSize))
                         .foregroundColor(vm.textEditorModel.colorText)
                         .cornerRadius(10)
-                    
-                    
                 }
                 .padding()
                 
             }
-            .navigationBarItems(trailing:
-                                    Image(systemName: "square.and.arrow.down")
-                                    .foregroundColor(.blue)
-                                    .font(.title))
+            .navigationBarItems(trailing: Button(action: {
+                vm.addText(text: vm.textEditorModel.text)
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Image(systemName: "square.and.arrow.down")
+                .foregroundColor(.blue)
+                .font(.title)
+            }))
             
             .navigationTitle("Text Editor")
-            .navigationBarTitleDisplayMode(.inline)
+            //.navigationBarTitleDisplayMode(.inline)
         }
     }
 }

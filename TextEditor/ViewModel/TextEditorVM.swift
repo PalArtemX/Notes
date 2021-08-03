@@ -6,10 +6,65 @@
 //
 
 import Foundation
-
+import CoreData
 
 class TextEditorVM: ObservableObject {
     @Published var textEditorModel = TextEditorModel()
+    @Published var savedEntities: [TextEditorEntity] = []
+    
+    let container: NSPersistentContainer
+    
+    init() {
+        container = NSPersistentContainer(name: "TextEditorCoreData")
+        
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                print("💾 Error loading Core Data ⚠️, \(error.localizedDescription)")
+            } else {
+                print("💾 Successfuly loaded Core Data. ✅")
+            }
+        }
+        fetchTextEditor()
+    }
     
     
+    
+    // MARK: - func
+    func fetchTextEditor() {
+        let request = NSFetchRequest<TextEditorEntity>(entityName: "TextEditorEntity")
+        
+        do {
+            savedEntities = try container.viewContext.fetch(request)
+            print("💾 Fetching OK ✅")
+        } catch let error {
+            print("💾 Error fetching ⚠️ \(error.localizedDescription)")
+        }
+    }
+    
+    
+    func addText(text: String) {
+        let newTextEditor = TextEditorEntity(context: container.viewContext)
+        //        newTextEditor.colorText = colorText
+        //        newTextEditor.selctionSize = selectionSize
+        newTextEditor.text = text
+        saveData()
+    }
+    
+    func deleteText(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let entity = savedEntities[index]
+        container.viewContext.delete(entity)
+        saveData()
+    }
+    
+    
+    func saveData() {
+        do {
+            try container.viewContext.save()
+            fetchTextEditor()
+            print("💾 Save. ✅")
+        } catch let error {
+            print("💾 Error saving data ⚠️ \(error)")
+        }
+    }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1BEF2026B95B400044116F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BEF1F26B95B400044116F /* ListView.swift */; };
+		1A1BEF2326B961670044116F /* TextEditorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */; };
 		1A29228126B8188800423757 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29228026B8188800423757 /* TextEditor.swift */; };
 		1A9699F126B73C5D006BC38B /* TextEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9699F026B73C5D006BC38B /* TextEditorApp.swift */; };
 		1A9699F326B73C5D006BC38B /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9699F226B73C5D006BC38B /* TextEditorView.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1BEF1F26B95B400044116F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		1A1BEF2226B961670044116F /* TextEditorCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TextEditorCoreData.xcdatamodel; sourceTree = "<group>"; };
 		1A29228026B8188800423757 /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
 		1A9699ED26B73C5D006BC38B /* TextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9699F026B73C5D006BC38B /* TextEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorApp.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				1A29228026B8188800423757 /* TextEditor.swift */,
+				1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			children = (
 				1A969A0726B7FBBB006BC38B /* HomeView.swift */,
 				1A9699F226B73C5D006BC38B /* TextEditorView.swift */,
+				1A1BEF1F26B95B400044116F /* ListView.swift */,
 				1ADC9A8A26B81BB400F98A40 /* ComponentsTextEditor */,
 			);
 			path = Views;
@@ -198,12 +204,14 @@
 			files = (
 				1A9699F326B73C5D006BC38B /* TextEditorView.swift in Sources */,
 				1A969A0826B7FBBB006BC38B /* HomeView.swift in Sources */,
+				1A1BEF2326B961670044116F /* TextEditorCoreData.xcdatamodeld in Sources */,
 				1A29228126B8188800423757 /* TextEditor.swift in Sources */,
 				1A9699F126B73C5D006BC38B /* TextEditorApp.swift in Sources */,
 				1ADC9A8C26B81C1D00F98A40 /* FontSizeView.swift in Sources */,
 				1ADC9A8E26B81D1B00F98A40 /* TextEditorVM.swift in Sources */,
 				1A969A0426B7F9F3006BC38B /* Color.swift in Sources */,
 				1ADC9A9026B847CB00F98A40 /* ColorFontView.swift in Sources */,
+				1A1BEF2026B95B400044116F /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +400,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1A1BEF2226B961670044116F /* TextEditorCoreData.xcdatamodel */,
+			);
+			currentVersion = 1A1BEF2226B961670044116F /* TextEditorCoreData.xcdatamodel */;
+			path = TextEditorCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1A9699E526B73C5C006BC38B /* Project object */;
 }

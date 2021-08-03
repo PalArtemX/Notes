@@ -13,7 +13,7 @@ struct TextEditorModel {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     // MARK: - TextEditor
-    var text = "proba 123456789"
+    var text = ""
     
     
     // MARK: - Size Text

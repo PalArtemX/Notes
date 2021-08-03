@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var vm = TextEditorVM()
+    @State private var showSheet = false
     
     var body: some View {
         NavigationView {
@@ -18,13 +19,32 @@ struct HomeView: View {
                 Color.themeColor.background
                     .ignoresSafeArea()
                 
-                Text("wedwe")
                 
-                
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(), GridItem()], alignment: .center, spacing: nil, pinnedViews: [], content: {
+                        ForEach(vm.savedEntities) { entity in
+                                NavigationLink(
+                                    destination: ListView(text: entity.text ?? "none"),
+                                    label: {
+                                        ListView(text: entity.text ?? "none")
+                                            .foregroundColor(.themeColor.text)
+                                    })
+                            }
+                    })
+                }
+                    
                 
             }
+            .navigationBarItems(trailing: Button(action: {
+                showSheet.toggle()
+            }, label: {
+                Text("Add")
+            }))
             .navigationTitle("Notes")
         }
+        .sheet(isPresented: $showSheet, content: {
+            TextEditorView(vm: vm)
+        })
     }
 }
 
