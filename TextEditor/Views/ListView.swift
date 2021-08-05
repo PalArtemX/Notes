@@ -13,23 +13,25 @@ struct ListView: View {
     
     var body: some View {
         
-        
-        ZStack(alignment: .topLeading) {
-            
-            
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.themeColor.buttonText, lineWidth: 1.5)
-            
-            Text(text)
-                .padding()
-            
-            
+        VStack {
+            ZStack(alignment: .topLeading) {
+                
+                Color.themeColor.background.cornerRadius(15)
+                       
+                Text(text)
+                    .foregroundColor(.themeColor.text)
+                    .padding()
+            }
+            .animation(.spring())
+            .padding()
         }
-        .padding()
-        
-        
     }
 }
+
+
+
+
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {

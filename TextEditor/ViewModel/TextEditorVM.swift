@@ -48,15 +48,15 @@ class TextEditorVM: ObservableObject {
         //        newTextEditor.selctionSize = selectionSize
         newTextEditor.text = text
         saveData()
+        textEditorModel.text = ""
     }
     
-    func deleteText(indexSet: IndexSet) {
-        guard let index = indexSet.first else { return }
-        let entity = savedEntities[index]
-        container.viewContext.delete(entity)
-        saveData()
-    }
-    
+//    func deleteText(indexSet: IndexSet) {
+//        guard let index = indexSet.first else { return }
+//        let entity = savedEntities[index]
+//        container.viewContext.delete(entity)
+//        saveData()
+//    }
     
     func saveData() {
         do {
@@ -66,5 +66,10 @@ class TextEditorVM: ObservableObject {
         } catch let error {
             print("💾 Error saving data ⚠️ \(error)")
         }
+    }
+    
+    func deleteEntity(entity: TextEditorEntity) {
+        container.viewContext.delete(entity)
+        saveData()
     }
 }

@@ -11,40 +11,70 @@ struct HomeView: View {
     
     @StateObject var vm = TextEditorVM()
     @State private var showSheet = false
+    var columns: [GridItem] = Array(repeating: GridItem(.adaptive(minimum: 200, maximum: 300), spacing: nil, alignment: nil), count: 2)
     
     var body: some View {
         NavigationView {
-            ZStack {
-                // Background Color
-                Color.themeColor.background
-                    .ignoresSafeArea()
-                
                 
                 ScrollView {
-                    LazyVGrid(columns: [GridItem(), GridItem()], alignment: .center, spacing: nil, pinnedViews: [], content: {
+                    
+                    LazyVGrid(columns: columns) {
+                        
                         ForEach(vm.savedEntities) { entity in
+                            
                                 NavigationLink(
-                                    destination: ListView(text: entity.text ?? "none"),
+                                    destination: ListView(text: entity.text ?? "nothing").animation(.spring()),
                                     label: {
-                                        ListView(text: entity.text ?? "none")
+                                        ListView(text: entity.text ?? "nothing")
                                             .foregroundColor(.themeColor.text)
                                     })
-                            }
-                    })
-                }
-                    
-                
-            }
-            .navigationBarItems(trailing: Button(action: {
-                showSheet.toggle()
-            }, label: {
-                Text("Add")
-            }))
+                                    
+                                    .frame(maxHeight: 200)
+                                    
+                                    .contextMenu(menuItems: {
+                                        // MARK: - Menu bar: Add
+                                        Button(action: {
+                                            showSheet.toggle()
+                                        }, label: {
+                                            Label("Add", systemImage: "note.text.badge.plus")
+                                        })
+                                        
+                                        // MARK: - Menu bar: Copy
+                                        Button(action: {}, label: {
+                                            Label("Copy", systemImage: "doc.on.doc")
+                                        })
+                                        
+                                        Divider()
+                                        
+                                       // MARK: - Menu bar: Delete
+                                        Button(action: {
+                                            
+                                                vm.deleteEntity(entity: entity)
+                                            
+                                        }, label: {
+                                            Label("Delete", systemImage: "trash.slash")
+                                                .accentColor(.red)
+                                        })
+                                    }) // contexMenu
+                            
+                        } // ForEach
+                    } // LazyVGrid
+                } // ScrollView
+
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        showSheet.toggle()
+                                    }, label: {
+                                        Label("Add", systemImage: "note.text.badge.plus")
+                                    }))
+            
             .navigationTitle("Notes")
-        }
-        .sheet(isPresented: $showSheet, content: {
+        } // NavigationView
+        
+        
+        .sheet(isPresented: $showSheet) {
             TextEditorView(vm: vm)
-        })
+        }
     }
 }
 

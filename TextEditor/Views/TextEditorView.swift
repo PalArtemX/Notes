@@ -51,9 +51,7 @@ struct TextEditorView: View {
                 vm.addText(text: vm.textEditorModel.text)
                 presentationMode.wrappedValue.dismiss()
             }, label: {
-                Image(systemName: "square.and.arrow.down")
-                .foregroundColor(.blue)
-                .font(.title)
+                Label("Save", systemImage: "square.and.arrow.down")
             }))
             
             .navigationTitle("Text Editor")

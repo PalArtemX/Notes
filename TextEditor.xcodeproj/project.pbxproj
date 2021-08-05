@@ -10,6 +10,7 @@
 		1A1BEF2026B95B400044116F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BEF1F26B95B400044116F /* ListView.swift */; };
 		1A1BEF2326B961670044116F /* TextEditorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */; };
 		1A29228126B8188800423757 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29228026B8188800423757 /* TextEditor.swift */; };
+		1A94D0B926BC0BB100603610 /* OnDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94D0B826BC0BB100603610 /* OnDelete.swift */; };
 		1A9699F126B73C5D006BC38B /* TextEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9699F026B73C5D006BC38B /* TextEditorApp.swift */; };
 		1A9699F326B73C5D006BC38B /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9699F226B73C5D006BC38B /* TextEditorView.swift */; };
 		1A9699F526B73C5E006BC38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9699F426B73C5E006BC38B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		1A1BEF1F26B95B400044116F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		1A1BEF2226B961670044116F /* TextEditorCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TextEditorCoreData.xcdatamodel; sourceTree = "<group>"; };
 		1A29228026B8188800423757 /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
+		1A94D0B826BC0BB100603610 /* OnDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDelete.swift; sourceTree = "<group>"; };
 		1A9699ED26B73C5D006BC38B /* TextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9699F026B73C5D006BC38B /* TextEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorApp.swift; sourceTree = "<group>"; };
 		1A9699F226B73C5D006BC38B /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				1A969A0326B7F9F3006BC38B /* Color.swift */,
+				1A94D0B826BC0BB100603610 /* OnDelete.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				1ADC9A8C26B81C1D00F98A40 /* FontSizeView.swift in Sources */,
 				1ADC9A8E26B81D1B00F98A40 /* TextEditorVM.swift in Sources */,
 				1A969A0426B7F9F3006BC38B /* Color.swift in Sources */,
+				1A94D0B926BC0BB100603610 /* OnDelete.swift in Sources */,
 				1ADC9A9026B847CB00F98A40 /* ColorFontView.swift in Sources */,
 				1A1BEF2026B95B400044116F /* ListView.swift in Sources */,
 			);
