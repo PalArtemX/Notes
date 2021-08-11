@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-struct TextEditorModel {
+struct NotesModel {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     // MARK: - TextEditor
@@ -18,9 +18,10 @@ struct TextEditorModel {
     
     // MARK: - Size Text
     let sizesText: [CGFloat] = [10, 15, 20, 25, 30, 35]
-    var selctionSize: CGFloat = 20
+    var selectionSize: CGFloat = 20
     
     
     // MARK: - Color Text
     var colorText: Color = .themeColor.text
+    
 }

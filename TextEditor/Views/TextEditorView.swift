@@ -9,18 +9,15 @@ import SwiftUI
 
 struct TextEditorView: View {
     
-    @ObservedObject var vm: TextEditorVM
+    @ObservedObject var vm: NotesVM
     @Environment(\.presentationMode) var presentationMode
     
-    
     var body: some View {
-        
         NavigationView {
             ZStack {
                 // Background
                 Color.themeColor.background
                     .ignoresSafeArea()
-                
                 
                 VStack {
                     HStack {
@@ -39,23 +36,24 @@ struct TextEditorView: View {
                     .foregroundColor(.themeColor.buttonText)
                     
                     
-                    TextEditor(text: $vm.textEditorModel.text)
-                        .font(Font.system(size: vm.textEditorModel.selctionSize))
-                        .foregroundColor(vm.textEditorModel.colorText)
+                    TextEditor(text: $vm.notes.text)
+                        .font(Font.system(size: vm.notes.selectionSize))
+                        .foregroundColor(vm.notes.colorText)
                         .cornerRadius(10)
                 }
                 .padding()
                 
             }
-            .navigationBarItems(trailing: Button(action: {
-                vm.addText(text: vm.textEditorModel.text)
-                presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Label("Save", systemImage: "square.and.arrow.down")
-            }))
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        vm.addText(text: vm.notes.text)
+                                        presentationMode.wrappedValue.dismiss()
+                                    }, label: {
+                                        Label("Save", systemImage: "square.and.arrow.down")
+                                    }))
             
             .navigationTitle("Text Editor")
-            //.navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -69,8 +67,8 @@ struct TextEditorView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TextEditorView(vm: TextEditorVM())
-            TextEditorView(vm: TextEditorVM())
+            TextEditorView(vm: NotesVM())
+            TextEditorView(vm: NotesVM())
                 .preferredColorScheme(.dark)
         }
     }

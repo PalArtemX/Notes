@@ -8,11 +8,12 @@
 import Foundation
 import CoreData
 
-class TextEditorVM: ObservableObject {
-    @Published var textEditorModel = TextEditorModel()
+class NotesVM: ObservableObject {
+    @Published var notes = NotesModel()
     @Published var savedEntities: [TextEditorEntity] = []
     
     let container: NSPersistentContainer
+    
     
     init() {
         container = NSPersistentContainer(name: "TextEditorCoreData")
@@ -41,22 +42,14 @@ class TextEditorVM: ObservableObject {
         }
     }
     
-    
     func addText(text: String) {
         let newTextEditor = TextEditorEntity(context: container.viewContext)
         //        newTextEditor.colorText = colorText
         //        newTextEditor.selctionSize = selectionSize
         newTextEditor.text = text
         saveData()
-        textEditorModel.text = ""
+        notes.text = ""
     }
-    
-//    func deleteText(indexSet: IndexSet) {
-//        guard let index = indexSet.first else { return }
-//        let entity = savedEntities[index]
-//        container.viewContext.delete(entity)
-//        saveData()
-//    }
     
     func saveData() {
         do {
@@ -72,4 +65,11 @@ class TextEditorVM: ObservableObject {
         container.viewContext.delete(entity)
         saveData()
     }
+    
+    //    func deleteText(indexSet: IndexSet) {
+    //        guard let index = indexSet.first else { return }
+    //        let entity = savedEntities[index]
+    //        container.viewContext.delete(entity)
+    //        saveData()
+    //    }
 }

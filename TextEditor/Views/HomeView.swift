@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject var vm = TextEditorVM()
+    @StateObject var vm = NotesVM()
     @State private var showSheet = false
-    var columns: [GridItem] = Array(repeating: GridItem(.adaptive(minimum: 200, maximum: 300), spacing: nil, alignment: nil), count: 2)
+    let columns: [GridItem] = [GridItem(.adaptive(minimum: 140, maximum: 300))]
     
     var body: some View {
         NavigationView {
@@ -28,7 +28,7 @@ struct HomeView: View {
                                         ListView(text: entity.text ?? "nothing")
                                             .foregroundColor(.themeColor.text)
                                     })
-                                    
+                                    //.aspectRatio(2/2.5, contentMode: .fit)
                                     .frame(maxHeight: 200)
                                     
                                     .contextMenu(menuItems: {
@@ -48,11 +48,9 @@ struct HomeView: View {
                                         
                                        // MARK: - Menu bar: Delete
                                         Button(action: {
-                                            
                                                 vm.deleteEntity(entity: entity)
-                                            
                                         }, label: {
-                                            Label("Delete", systemImage: "trash.slash")
+                                            Label("Delete", systemImage: "trash")
                                                 .accentColor(.red)
                                         })
                                     }) // contexMenu
@@ -70,11 +68,8 @@ struct HomeView: View {
             
             .navigationTitle("Notes")
         } // NavigationView
+        .sheet(isPresented: $showSheet) { TextEditorView(vm: vm) }
         
-        
-        .sheet(isPresented: $showSheet) {
-            TextEditorView(vm: vm)
-        }
     }
 }
 

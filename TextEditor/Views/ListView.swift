@@ -10,16 +10,16 @@ import SwiftUI
 struct ListView: View {
     
     let text: String
+    let colorText: Color = .themeColor.text
     
     var body: some View {
-        
         VStack {
             ZStack(alignment: .topLeading) {
                 
                 Color.themeColor.background.cornerRadius(15)
                        
                 Text(text)
-                    .foregroundColor(.themeColor.text)
+                    .foregroundColor(colorText)
                     .padding()
             }
             .animation(.spring())
