@@ -15,58 +15,44 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-                
                 ScrollView {
-                    
                     LazyVGrid(columns: columns) {
-                        
                         ForEach(vm.savedEntities) { entity in
-                            
                                 NavigationLink(
-                                    destination: ListView(text: entity.text ?? "nothing", font: CGFloat(entity.sizeText)).animation(.spring()),
+                                    destination: ListView(
+                                        text: entity.text ?? "nothing",
+                                        font: CGFloat(entity.sizeText)).animation(.spring()),
                                     label: {
-                                        ListView(text: entity.text ?? "nothing", font: CGFloat(entity.sizeText))
+                                        ListView(
+                                            text: entity.text ?? "nothing",
+                                            font: CGFloat(entity.sizeText))
                                             .foregroundColor(.themeColor.text)
                                     })
                                     //.aspectRatio(2/2.5, contentMode: .fit)
                                     .frame(maxHeight: 200)
                                     
                                     .contextMenu(menuItems: {
-                                        // MARK: - Menu bar: Add
+                                        // MARK: - Menu bar: Delete
                                         Button(action: {
-                                            showSheet.toggle()
-                                        }, label: {
-                                            Label("Add", systemImage: "note.text.badge.plus")
-                                        })
-                                        
-                                        // MARK: - Menu bar: Copy
-                                        Button(action: {}, label: {
-                                            Label("Copy", systemImage: "doc.on.doc")
-                                        })
-                                        
-                                        Divider()
-                                        
-                                       // MARK: - Menu bar: Delete
-                                        Button(action: {
-                                                vm.deleteEntity(entity: entity)
+                                            vm.deleteEntity(entity: entity)
                                         }, label: {
                                             Label("Delete", systemImage: "trash")
-                                                .accentColor(.red)
                                         })
                                     }) // contexMenu
-                            
                         } // ForEach
                     } // LazyVGrid
                 } // ScrollView
-
-            .navigationBarItems(trailing:
-                                    Button(action: {
-                                        showSheet.toggle()
-                                    }, label: {
-                                        Label("Add", systemImage: "note.text.badge.plus")
-                                    }))
-            
-            .navigationTitle("Notes")
+                
+                .navigationBarItems(trailing:
+                                        Button(action: {
+                                            showSheet.toggle()
+                                        }, label: {
+                                            Image(systemName: "note.text.badge.plus")
+                                                .renderingMode(.original)
+                                            Text("Add")
+                                        }))
+                
+                .navigationTitle("Notes")
         } // NavigationView
         .sheet(isPresented: $showSheet) { TextEditorView(vm: vm) }
         

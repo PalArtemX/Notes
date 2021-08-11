@@ -23,11 +23,11 @@ struct TextEditorView: View {
                     HStack {
                         FontSizeView(vm: vm)
                         Spacer()
-                        Image(systemName: "list.dash")
+                        Image(systemName: "circle")
                         Spacer()
-                        Image(systemName: "character")
+                        Image(systemName: "circle")
                         Spacer()
-                        Image(systemName: "textformat.abc.dottedunderline")
+                        Image(systemName: "circle")
                         Spacer()
                         ColorFontView(vm: vm)
                     }
@@ -49,7 +49,9 @@ struct TextEditorView: View {
                                         vm.addText()
                                         presentationMode.wrappedValue.dismiss()
                                     }, label: {
-                                        Label("Save", systemImage: "square.and.arrow.down")
+                                        Image(systemName: "note.text.badge.plus")
+                                            .renderingMode(.original)
+                                        Text("Save")
                                     }))
             
             .navigationTitle("Text Editor")
