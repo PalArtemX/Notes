@@ -42,11 +42,10 @@ class NotesVM: ObservableObject {
         }
     }
     
-    func addText(text: String) {
+    func addText() {
         let newTextEditor = TextEditorEntity(context: container.viewContext)
-        //        newTextEditor.colorText = colorText
-        //        newTextEditor.selctionSize = selectionSize
-        newTextEditor.text = text
+        newTextEditor.text = notes.text
+        newTextEditor.sizeText = Double(notes.selectionSize)
         saveData()
         notes.text = ""
     }

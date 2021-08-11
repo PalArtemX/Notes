@@ -17,6 +17,7 @@ struct FontSizeView: View {
                label: VStack {
                 Image(systemName: "textformat.size")
                 Text("\(vm.notes.selectionSize, specifier: "%.0f")")
+                    .bold()
                },
                content: {
                 ForEach(vm.notes.sizesText, id: \.self) { item in

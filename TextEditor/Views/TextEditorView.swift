@@ -46,7 +46,7 @@ struct TextEditorView: View {
             }
             .navigationBarItems(trailing:
                                     Button(action: {
-                                        vm.addText(text: vm.notes.text)
+                                        vm.addText()
                                         presentationMode.wrappedValue.dismiss()
                                     }, label: {
                                         Label("Save", systemImage: "square.and.arrow.down")

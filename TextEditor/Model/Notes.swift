@@ -17,7 +17,7 @@ struct NotesModel {
     
     
     // MARK: - Size Text
-    let sizesText: [CGFloat] = [10, 15, 20, 25, 30, 35]
+    let sizesText: [CGFloat] = [8, 10, 12, 14, 16, 18, 20, 24 ,26 ,28, 36]
     var selectionSize: CGFloat = 20
     
     

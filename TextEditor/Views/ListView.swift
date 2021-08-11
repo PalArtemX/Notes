@@ -11,6 +11,7 @@ struct ListView: View {
     
     let text: String
     let colorText: Color = .themeColor.text
+    let font: CGFloat
     
     var body: some View {
         VStack {
@@ -21,6 +22,7 @@ struct ListView: View {
                 Text(text)
                     .foregroundColor(colorText)
                     .padding()
+                    .font(Font.system(size: font))
             }
             .animation(.spring())
             .padding()
@@ -35,6 +37,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(text: "Hello")
+        ListView(text: "Hello", font: 20)
     }
 }

@@ -23,9 +23,9 @@ struct HomeView: View {
                         ForEach(vm.savedEntities) { entity in
                             
                                 NavigationLink(
-                                    destination: ListView(text: entity.text ?? "nothing").animation(.spring()),
+                                    destination: ListView(text: entity.text ?? "nothing", font: CGFloat(entity.sizeText)).animation(.spring()),
                                     label: {
-                                        ListView(text: entity.text ?? "nothing")
+                                        ListView(text: entity.text ?? "nothing", font: CGFloat(entity.sizeText))
                                             .foregroundColor(.themeColor.text)
                                     })
                                     //.aspectRatio(2/2.5, contentMode: .fit)
