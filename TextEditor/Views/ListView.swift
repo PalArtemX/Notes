@@ -20,6 +20,7 @@ struct ListView: View {
                 Color.themeColor.background.cornerRadius(15)
                        
                 Text(text)
+                    
                     .foregroundColor(colorText)
                     .padding()
                     .font(Font.system(size: font))
