@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="TextEditorEntity" representedClassName="TextEditorEntity" syncable="YES" codeGenerationType="class">
+    <entity name="TextEditorEntity" representedClassName="TextEditorEntity" syncable="YES">
+        <attribute name="colorText" optional="YES" attributeType="Transformable" customClassName="UIColor"/>
         <attribute name="sizeText" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="TextEditorEntity" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="TextEditorEntity" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>

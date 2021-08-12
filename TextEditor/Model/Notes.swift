@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct NotesModel {
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    //@Environment(\.colorScheme) var colorScheme: ColorScheme
     
     // MARK: - TextEditor
     var text = ""

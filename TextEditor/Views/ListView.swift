@@ -10,7 +10,7 @@ import SwiftUI
 struct ListView: View {
     
     let text: String
-    let colorText: Color = .themeColor.text
+    let colorText: Color
     let font: CGFloat
     
     var body: some View {
@@ -20,7 +20,7 @@ struct ListView: View {
                 Color.themeColor.background.cornerRadius(15)
                        
                 Text(text)
-                    
+                    //.foregroundColor(.green)
                     .foregroundColor(colorText)
                     .padding()
                     .font(Font.system(size: font))
@@ -36,8 +36,12 @@ struct ListView: View {
 
 
 
+
+
+
+
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(text: "Hello", font: 20)
+        ListView(text: "Hello", colorText: .themeColor.text, font: 20)
     }
 }

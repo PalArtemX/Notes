@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+import UIKit
+import SwiftUI
 
 class NotesVM: ObservableObject {
     @Published var notes = NotesModel()
@@ -46,6 +48,7 @@ class NotesVM: ObservableObject {
         let newTextEditor = TextEditorEntity(context: container.viewContext)
         newTextEditor.text = notes.text
         newTextEditor.sizeText = Double(notes.selectionSize)
+        newTextEditor.colorText = UIColor(notes.colorText)
         saveData()
         notes.text = ""
     }
@@ -65,10 +68,4 @@ class NotesVM: ObservableObject {
         saveData()
     }
     
-    //    func deleteText(indexSet: IndexSet) {
-    //        guard let index = indexSet.first else { return }
-    //        let entity = savedEntities[index]
-    //        container.viewContext.delete(entity)
-    //        saveData()
-    //    }
 }

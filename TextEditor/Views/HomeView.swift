@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+
 
 struct HomeView: View {
     
@@ -15,44 +17,47 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-                ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(vm.savedEntities) { entity in
-                                NavigationLink(
-                                    destination: ListView(
-                                        text: entity.text ?? "nothing",
-                                        font: CGFloat(entity.sizeText)).animation(.spring()),
-                                    label: {
-                                        ListView(
-                                            text: entity.text ?? "nothing",
-                                            font: CGFloat(entity.sizeText))
-                                            .foregroundColor(.themeColor.text)
-                                    })
-                                    //.aspectRatio(2/2.5, contentMode: .fit)
-                                    .frame(maxHeight: 200)
-                                    
-                                    .contextMenu(menuItems: {
-                                        // MARK: - Menu bar: Delete
-                                        Button(action: {
-                                            vm.deleteEntity(entity: entity)
-                                        }, label: {
-                                            Label("Delete", systemImage: "trash")
-                                        })
-                                    }) // contexMenu
-                        } // ForEach
-                    } // LazyVGrid
-                } // ScrollView
-                
-                .navigationBarItems(trailing:
-                                        Button(action: {
-                                            showSheet.toggle()
-                                        }, label: {
-                                            Image(systemName: "note.text.badge.plus")
-                                                .renderingMode(.original)
-                                            Text("Add")
-                                        }))
-                
-                .navigationTitle("Notes")
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(vm.savedEntities) { entity in
+                        NavigationLink(
+                            destination:
+                                ListView(
+                                    text: entity.text ?? "nothing",
+                                    colorText: Color(entity.colorText ?? UIColor(.themeColor.text)),
+                                    font: CGFloat(entity.sizeText)).animation(.spring()),
+                            label: {
+                                ListView(
+                                    text: entity.text ?? "nothing",
+                                    colorText: Color(entity.colorText ?? UIColor(.themeColor.text)),
+                                    font: CGFloat(entity.sizeText))
+                                    .foregroundColor(Color(entity.colorText ?? UIColor(.themeColor.text)))
+                            })
+                            //.aspectRatio(2/2.5, contentMode: .fit)
+                            .frame(maxHeight: 200)
+                            
+                            .contextMenu(menuItems: {
+                                // MARK: - Menu bar: Delete
+                                Button(action: {
+                                    vm.deleteEntity(entity: entity)
+                                }, label: {
+                                    Label("Delete", systemImage: "trash")
+                                })
+                            }) // contexMenu
+                    } // ForEach
+                } // LazyVGrid
+            } // ScrollView
+            
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        showSheet.toggle()
+                                    }, label: {
+                                        Image(systemName: "note.text.badge.plus")
+                                            .renderingMode(.original)
+                                        Text("Add")
+                                    }))
+            
+            .navigationTitle("Notes")
         } // NavigationView
         .sheet(isPresented: $showSheet) { TextEditorView(vm: vm) }
         
