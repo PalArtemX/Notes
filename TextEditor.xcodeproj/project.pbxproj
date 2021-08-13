@@ -55,11 +55,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A4C814A26C68A1A00BF9B66 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */,
+				1ABD1F2626C5850900A962B0 /* TextEditorEntity+CoreDataProperties.swift */,
+				1ABD1F2526C5850900A962B0 /* TextEditorEntity+CoreDataClass.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		1A9699E426B73C5C006BC38B = {
 			isa = PBXGroup;
 			children = (
-				1ABD1F2526C5850900A962B0 /* TextEditorEntity+CoreDataClass.swift */,
-				1ABD1F2626C5850900A962B0 /* TextEditorEntity+CoreDataProperties.swift */,
 				1A9699EF26B73C5D006BC38B /* TextEditor */,
 				1A9699EE26B73C5D006BC38B /* Products */,
 			);
@@ -108,8 +116,8 @@
 		1A969A0026B741AA006BC38B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A4C814A26C68A1A00BF9B66 /* CoreData */,
 				1A29228026B8188800423757 /* Notes.swift */,
-				1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
