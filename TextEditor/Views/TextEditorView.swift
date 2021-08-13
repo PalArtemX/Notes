@@ -51,10 +51,10 @@ struct TextEditorView: View {
                                     }, label: {
                                         Image(systemName: "note.text.badge.plus")
                                             .renderingMode(.original)
-                                        Text("Save")
+                                        Text("Save", comment: "navigationBarItems")
                                     }))
             
-            .navigationTitle("Text Editor")
+            .navigationTitle(Text("Text Editor", comment: "navigationTitle"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }

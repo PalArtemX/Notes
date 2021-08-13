@@ -41,7 +41,8 @@ struct HomeView: View {
                                 Button(action: {
                                     vm.deleteEntity(entity: entity)
                                 }, label: {
-                                    Label("Delete", systemImage: "trash")
+                                    Text("Delete", comment: "contextMenu")
+                                    Image(systemName: "trash")
                                 })
                             }) // contexMenu
                     } // ForEach
@@ -54,10 +55,10 @@ struct HomeView: View {
                                     }, label: {
                                         Image(systemName: "note.text.badge.plus")
                                             .renderingMode(.original)
-                                        Text("Add")
+                                        Text("Add", comment: "navigationBarItem")
                                     }))
             
-            .navigationTitle("Notes")
+            .navigationTitle(Text("Notes", comment: "navigationTitle"))
         } // NavigationView
         .sheet(isPresented: $showSheet) { TextEditorView(vm: vm) }
         
