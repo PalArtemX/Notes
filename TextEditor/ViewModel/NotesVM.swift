@@ -24,7 +24,7 @@ class NotesVM: ObservableObject {
             if let error = error {
                 print("💾 Error loading Core Data ⚠️, \(error.localizedDescription)")
             } else {
-                print("💾 Successfuly loaded Core Data. ✅")
+                print("💾 Successfully loaded Core Data. ✅")
             }
         }
         fetchTextEditor()

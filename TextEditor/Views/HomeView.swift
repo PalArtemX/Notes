@@ -18,6 +18,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+    
                 LazyVGrid(columns: columns) {
                     ForEach(vm.savedEntities) { entity in
                         NavigationLink(
@@ -40,11 +41,12 @@ struct HomeView: View {
                                 // MARK: - Menu bar: Delete
                                 Button(action: {
                                     vm.deleteEntity(entity: entity)
+                                    SoundManager.instance.playSound(sound: .delete)
                                 }, label: {
                                     Text("Delete", comment: "contextMenu")
                                     Image(systemName: "trash")
                                 })
-                            }) // contexMenu
+                            }) // contextMenu
                     } // ForEach
                 } // LazyVGrid
             } // ScrollView

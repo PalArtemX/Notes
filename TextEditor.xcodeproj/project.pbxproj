@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0382EA26ED2403008D314F /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0382E926ED2403008D314F /* SoundManager.swift */; };
+		1A0382EF26ED2A46008D314F /* save.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A0382ED26ED2A45008D314F /* save.mp3 */; };
+		1A0382F026ED2A46008D314F /* delete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A0382EE26ED2A46008D314F /* delete.mp3 */; };
 		1A1BEF2026B95B400044116F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BEF1F26B95B400044116F /* ListView.swift */; };
 		1A1BEF2326B961670044116F /* TextEditorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BEF2126B961670044116F /* TextEditorCoreData.xcdatamodeld */; };
 		1A29228126B8188800423757 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29228026B8188800423757 /* Notes.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A0382E926ED2403008D314F /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		1A0382ED26ED2A45008D314F /* save.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = save.mp3; sourceTree = "<group>"; };
+		1A0382EE26ED2A46008D314F /* delete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = delete.mp3; sourceTree = "<group>"; };
 		1A1BEF1F26B95B400044116F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		1A1BEF2226B961670044116F /* TextEditorCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TextEditorCoreData.xcdatamodel; sourceTree = "<group>"; };
 		1A29228026B8188800423757 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
@@ -58,6 +64,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A0382E826ED2362008D314F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1A0382E926ED2403008D314F /* SoundManager.swift */,
+				1A0382EC26ED2A33008D314F /* Sounds */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1A0382EC26ED2A33008D314F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1A0382EE26ED2A46008D314F /* delete.mp3 */,
+				1A0382ED26ED2A45008D314F /* save.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		1A4C814A26C68A1A00BF9B66 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +114,9 @@
 				1A9699F026B73C5D006BC38B /* TextEditorApp.swift */,
 				1A969A0226B741B5006BC38B /* Views */,
 				1A969A0126B741AD006BC38B /* ViewModel */,
-				1A969A0026B741AA006BC38B /* Model */,
-				1A9699FF26B741A6006BC38B /* Extension */,
+				1A969A0026B741AA006BC38B /* Models */,
+				1A9699FF26B741A6006BC38B /* Extensions */,
+				1A0382E826ED2362008D314F /* Managers */,
 				1A9699F426B73C5E006BC38B /* Assets.xcassets */,
 				1A9699F926B73C5E006BC38B /* Info.plist */,
 				1A992B2226C69944001EAE60 /* Localizable.strings */,
@@ -108,22 +133,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1A9699FF26B741A6006BC38B /* Extension */ = {
+		1A9699FF26B741A6006BC38B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1A969A0326B7F9F3006BC38B /* Color.swift */,
 				1A94D0B826BC0BB100603610 /* OnDelete.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		1A969A0026B741AA006BC38B /* Model */ = {
+		1A969A0026B741AA006BC38B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1A4C814A26C68A1A00BF9B66 /* CoreData */,
 				1A29228026B8188800423757 /* Notes.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1A969A0126B741AD006BC38B /* ViewModel */ = {
@@ -213,7 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A9699F826B73C5E006BC38B /* Preview Assets.xcassets in Resources */,
+				1A0382EF26ED2A46008D314F /* save.mp3 in Resources */,
 				1A992B2026C69944001EAE60 /* Localizable.strings in Resources */,
+				1A0382F026ED2A46008D314F /* delete.mp3 in Resources */,
 				1A9699F526B73C5E006BC38B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +257,7 @@
 				1A1BEF2326B961670044116F /* TextEditorCoreData.xcdatamodeld in Sources */,
 				1A29228126B8188800423757 /* Notes.swift in Sources */,
 				1ABD1F2726C5850900A962B0 /* TextEditorEntity+CoreDataClass.swift in Sources */,
+				1A0382EA26ED2403008D314F /* SoundManager.swift in Sources */,
 				1A9699F126B73C5D006BC38B /* TextEditorApp.swift in Sources */,
 				1ADC9A8C26B81C1D00F98A40 /* FontSizeView.swift in Sources */,
 				1ADC9A8E26B81D1B00F98A40 /* NotesVM.swift in Sources */,

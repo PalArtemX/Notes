@@ -48,6 +48,7 @@ struct TextEditorView: View {
                                     Button(action: {
                                         vm.addText()
                                         presentationMode.wrappedValue.dismiss()
+                                        SoundManager.instance.playSound(sound: .save)
                                     }, label: {
                                         Image(systemName: "note.text.badge.plus")
                                             .renderingMode(.original)
