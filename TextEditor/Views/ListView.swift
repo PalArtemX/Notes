@@ -18,7 +18,9 @@ struct ListView: View {
             ZStack(alignment: .topLeading) {
                 
                 Color.themeColor.background.cornerRadius(15)
-                       
+                    .shadow(color: .themeColor.shadowColor, radius: 3, x: 0, y: 5)
+                    
+                    
                 Text(text)
                     //.foregroundColor(.green)
                     .foregroundColor(colorText)
@@ -27,6 +29,7 @@ struct ListView: View {
             }
             .animation(.spring())
             .padding()
+            
         }
     }
 }
@@ -42,6 +45,10 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(text: "Hello", colorText: .themeColor.text, font: 20)
+        Group {
+            ListView(text: "Hello", colorText: .themeColor.text, font: 20)
+            ListView(text: "Hello", colorText: .themeColor.text, font: 20)
+                .preferredColorScheme(.dark)
+        }
     }
 }

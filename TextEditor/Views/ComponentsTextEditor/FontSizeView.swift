@@ -13,18 +13,24 @@ struct FontSizeView: View {
     
     var body: some View {
 
-        Picker(selection: $vm.notes.selectionSize,
-               label: VStack {
-                Image(systemName: "textformat.size")
-                Text("\(vm.notes.selectionSize, specifier: "%.0f")")
-                    .bold()
-               },
-               content: {
-                ForEach(vm.notes.sizesText, id: \.self) { item in
-                    Text("\(item, specifier: "%.0f")")//.tag(zizeText)
-                }
-               })
-            .pickerStyle(MenuPickerStyle())
+        VStack {
+            Image(systemName: "textformat.size")
+                
+            Picker(selection: $vm.notes.selectionSize,
+                   label: VStack {
+                    Image(systemName: "textformat.size") // FIXME: - Image(systemName: "textformat.size")
+                    Text("\(vm.notes.selectionSize, specifier: "%.0f")")
+                        .bold()
+                
+                   },
+                   content: {
+                    ForEach(vm.notes.sizesText, id: \.self) { item in
+                        Text("\(item, specifier: "%.0f")")//.tag(sizeText)
+                    }
+                   })
+                .pickerStyle(MenuPickerStyle())
+        }
+        .foregroundColor(.themeColor.buttonText)
     }
 }
 
